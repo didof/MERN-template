@@ -41,6 +41,8 @@ const subscribeValidator = (req, res, next) => {
 		return next()
 	}
 
+	const { username, email } = req.body
+
 	const extractedErrors = []
 	errors.array().map((err) => {
 		extractedErrors.push({ [err.param]: err.msg })
@@ -48,8 +50,8 @@ const subscribeValidator = (req, res, next) => {
 
 	return res.render('auth/register', {
 		title: 'Register',
-		// credentials: { username: req.username, email: req.email },
 		errors: extractedErrors,
+		username, email
 	})
 }
 

@@ -19,7 +19,6 @@ const subscribe = (req, res, next) => {
 			if (user) {
 				res.render('auth/register', {
 					title: 'Register',
-					credentials: { username, email },
 					errors: [{ email: 'Is already in use' }],
 				})
 			} else {
@@ -28,11 +27,9 @@ const subscribe = (req, res, next) => {
 			}
 		})
 		.then((newUser) => {
-			req.flash('success', 'You are now registered and can login')
 			return res.render('auth/login', {
 				title: 'Login',
-				credentials: { email: newUser.email },
-				messages: { success: req.flash('success') },
+				email: newUser.email,
 			})
 		})
 		.catch((err) => {

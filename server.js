@@ -19,7 +19,6 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 app.use(require('cookie-parser')())
-app.use(require('connect-flash')())
 
 // View
 app.use(expressLayouts)
