@@ -1,0 +1,17 @@
+<% if(typeof errors !== 'undefined') { %>
+    <h3 class="text-center">
+        <i class="far fa-times-circle"></i> You should fix something
+    </h3>
+    <p class="lead mt-3">
+        <% errors.forEach(error => { %>
+            <div class="alert alert-info" role="alert">
+                <%= Object.keys(error) %> : <%= Object.values(error) %>
+              </div>
+        <% }) %>
+    </p>
+
+<% } else { %>
+    <h3 class="text-center">
+        <i class="far fa-check-circle"></i> Please, fill up the form
+    </h3>
+<% } %>

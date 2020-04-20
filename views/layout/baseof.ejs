@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../partials/head.ejs') %>
+	<body>
+        <%- include('../partials/header.ejs') %>
+
+		<div class="container">
+			<%- body %>
+		</div>
+	</body>
+</html>
+
+<!--
+    to get a specific layout
+    
+    app.get('/', function(req, res) {
+        res.render('the-view', { layout: 'specific-layout' });
+    );
+-->
