@@ -27,12 +27,17 @@ const subscribe = (req, res, next) => {
 			}
 		})
 		.then((newUser) => {
-			return res.render('auth/login', {
-				title: 'Login',
-				email: newUser.email,
-			})
+			req.flash('success', 'successo uno')
+
+			return res.redirect('/auth/login')
+			
+			// return res.render('auth/login', {
+			// 	title: 'Login',
+			// 	email: newUser.email,
+			// })
 		})
 		.catch((err) => {
+			console.log('[register.route] ti butto fuori')
 			res.redirect('/')
 		})
 }

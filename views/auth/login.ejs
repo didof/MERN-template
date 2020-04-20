@@ -12,7 +12,6 @@
 						name="email"
 						class="form-control"
 						placeholder="Enter e-mail"
-						value="<%= typeof email != 'undefined' ? email : '' %>"
 					/>
 				</div>
 				<div class="form-group">
@@ -30,4 +29,14 @@
 			</form>
 		</div>
 	</div>
+
+	<% if (success_message != '' ) { %>
+	<div class="col-md-6 m-auto">
+		<div class="alert alert-info" role="alert">
+			<p>
+				<%= success_message %>
+			</p>
+		</div>
+	</div>
+	<% } %>
 </div>

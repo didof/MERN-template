@@ -2,14 +2,9 @@ const passport = require('passport')
 
 // @route /auth/register GET
 const render = (req, res, next) => {
-	let messages = {}
-	if (typeof res.locals.messages.success != 'undefined') {
-		messages = res.locals.messages.success
-	}
-
 	res.render('auth/login', {
 		title: 'Login',
-		messages,
+		messages: req.flash('success'),
 	})
 }
 

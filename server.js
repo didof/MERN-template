@@ -18,7 +18,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')(passport)
 
-app.use(require('cookie-parser')())
+app.use(require('cookie-parser')('secret'))	
+app.use(require('connect-flash')())
+app.use((req, res, next) => {
+    res.locals.success_message = req.flash('success')
+    next()
+})
 
 // View
 app.use(expressLayouts)
